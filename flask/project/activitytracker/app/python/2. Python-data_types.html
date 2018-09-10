@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/tdjearamane/AppData/Local/Temp/MarkdownPadPreview.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>2. Python-data_types</title>
+
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<!--<base href="file:\\\C:\MeAsManager-Dec2016\Training\Python\Python-training\">--><base href=".">
+</head>
+<body>
+<h1>Python - Data model</h1>
+<p>Data types are the fundmental elements of any programming language. Python has different data types - simple and advanced. To understand the data types, let us start with knowing Objects and its significance in python.</p>
+<p><strong>Objects</strong> are the basic abstraction of data in python. Data in a python program is represented as object or relations between object.</p>
+<p>First class objects </p>
+<p>Almost all objects in Python are first class. </p>
+<p>Definition: An object is first class if: 
+(1) we can put it in a structured object; 
+(2) we can pass it to a function; and
+(3) we can return it from a function.</p>
+<p>Every object has an identity, type and value associated with it.</p>
+<ul>
+<li>
+<p>Identity is the identifier of the object. It can be referred as the address in memory. Identity of the object never changes during its life time.</p>
+</li>
+<li>
+<p>Object type refer to the kind of data that can be stored in it.</p>
+</li>
+<li>
+<p>Value is the content of the object.</p>
+</li>
+</ul>
+<p><img src="./2. Python-data_types_files/python_object.png" alt="Python object"></p>
+<pre><code>number_var = 10
+</code></pre>
+
+<p>type of the object can be obtained by the function - type(obj_name)</p>
+<pre><code>&gt;&gt;&gt; type(number_var)
+&lt;type 'int'&gt;
+</code></pre>
+
+<p>Identity of the pbject can be obtained by the function - id(obj_name)</p>
+<pre><code>&gt;&gt;&gt; id(number_var)
+140296238158800
+</code></pre>
+
+<p>value in the variable can be accessed by its name</p>
+<pre><code>&gt;&gt;&gt; number_var
+10
+</code></pre>
+
+<p>Each object is referred by a name. </p>
+<p><strong>Naming of variables:</strong></p>
+<p>All variables in Python representing a data type should follow the convention mentioned below</p>
+<ul>
+<li>The first character must be an alphabet(upper or lower case) or _</li>
+<li>the rest can contain letters, _, or digits</li>
+<li>Python keywords are not allowed as name of the variable</li>
+</ul>
+<p>More on variables:</p>
+<ul>
+<li>we can have our own data types</li>
+<li>Declaration of variables is not required in Python</li>
+<li>The equal "=" sign in the assignment shouldn't be seen as "is equal to". It should be "read" or interpreted as "is set to"</li>
+<li>Not only the value of a variable may change during program execution but the type as well. You can assign an integer value to a variable, use it as an integer for a while and then assign a string to the variable. </li>
+</ul>
+<p><strong>Naming conventions:</strong></p>
+<p>Python prefers the underscore method but guides developers to defer to camelCasing if integrating into existing Python code that already uses that style</p>
+<pre><code>temperature_during_morning = 24
+temperatureDuringMorning = 24
+</code></pre>
+
+<p>Every data type has a characteric assigned to it and its largely governed by their ability of being modified. They are either mutable or immutable.</p>
+<h4>Mutable Vs Immutable objects:</h4>
+<p>Python has mutable and immutable data types. Objects whose value can change are said to be mutable type and objects whose value is unchangeable once they are created are called immutable. </p>
+<hr>
+<p>We can test whether two names have the same value using ==:</p>
+<pre><code>&gt;&gt;&gt; a == b
+True
+</code></pre>
+
+<p>We can test whether two names refer to the same object using the is operator:</p>
+<pre><code>&gt;&gt;&gt; a is b
+</code></pre>
+
+<h2>	False	</h2>
+<h3>Data Types:</h3>
+<p>Python has Numbers, Sequences, Sets and mapping categories of data types.</p>
+<p><img src="./2. Python-data_types_files/datatypes.png" alt="Data types"></p>
+<h3>Numbers:</h3>
+<p>Number type objects are immutable. There are four built-in data types for numbers available in python</p>
+<h4>Integer</h4>
+<ul>
+<li>
+They represent the normal numbers.
+	num = 3241
+</li>
+<li>
+<p>The value can be Octal literals(Base 8) </p>
+<pre><code>octal_number= 010 (Decimal 8)
+</code></pre>
+
+</li>
+<li>
+It can also have Hexa decimal 
+	literals <em>hexa</em>number = 0xA01
+</li>
+<li>Its a 64 bit value (max)</li>
+</ul>
+<h4>Long Integers</h4>
+<ul>
+<li>
+<p>Numbers of unlimited size </p>
+<pre><code>long_num = 35234326677452342L
+</code></pre>
+
+</li>
+</ul>
+<h3>Floating point numbers</h3>
+<ul>
+<li>float_num = 4.11 or 3.11e-10</li>
+<li>float_num = float(4)</li>
+</ul>
+<h4>Complex numbers</h4>
+<ul>
+<li>
+<p>(real part) + imaginary part</p>
+<pre><code> complex_numbers = 21 + 2E01        
+</code></pre>
+
+</li>
+</ul>
+<hr>
+<h3>Sequences:</h3>
+<p>They represent finite ordered set indexed by non-negative numbers. They represent a collection of objects. We have both mutable and immutable sequences. Sequences are containers with items that are accessible by indexing or slicing. </p>
+<p>When to use sequences?</p>
+<ul>
+<li>When you want to process a collection of items</li>
+<li>when you want to iterate over a collection of items</li>
+<li>when you want to index an item in a collection</li>
+</ul>
+<h4>Immutable sequences:</h4>
+<p><strong>Strings:</strong></p>
+<p>Strings are represented as a contiguous set of characters. Character is a string of 1 item of 8-bit byte.</p>
+<p>Strings can be represented with single, double and triple quotes</p>
+<pre><code>    &gt;&gt;&gt; first_name = 'Tanigai'
+    &gt;&gt;&gt; first_name
+    'Tanigai'
+
+    &gt;&gt;&gt; first_name = "Tanigai"
+    &gt;&gt;&gt; first_name
+    'Tanigai'
+
+    &gt;&gt;&gt; first_para = ''' In the world of python programming,            object is the fundamental abstraction for data'''   
+    &gt;&gt;&gt; first_para
+</code></pre>
+
+<p>---special characters in string.
+???</p>
+<p>print "hello" 'world'
+????</p>
+<p><strong>Unicode:</strong></p>
+<p>The items of an unicode object are Unicode code units. </p>
+<p><strong>Tuples:</strong></p>
+<p>Tuple is an immutable sequence. The items of a tuple are arbitrary python objects. It can collection of items separated by comma and enclosed with ().</p>
+<pre><code>&gt;&gt;&gt; tup_values = (1,2,3,'Youth')
+&gt;&gt;&gt; type(tup_values)
+&lt;type 'tuple'&gt;
+
+tup_values_int = (1,2,3)
+&gt;&gt;&gt; type(tup_values_int)
+&lt;type 'tuple'&gt;
+</code></pre>
+
+<p>It is possible to drop the parentheses when specifying a tuple, and only use a comma separated list of values:</p>
+<pre><code>&gt;&gt;&gt; thing = 2, 4, 6, 8
+&gt;&gt;&gt; type(thing)
+&lt;class 'tuple'&gt;
+&gt;&gt;&gt; thing
+(2, 4, 6, 8)
+</code></pre>
+
+<p>Single value tuple</p>
+<p>A single value tuple should end with a , </p>
+<pre><code>singlue_value_tuple = (1,). 
+</code></pre>
+
+<p>If it does not end with , the type of the object will be of the element in the parenthesis</p>
+<pre><code>&gt;&gt;&gt; single_value_tuple = (1,)
+&gt;&gt;&gt; type(single_value_tuple)
+&lt;type 'tuple'&gt;
+
+&gt;&gt;&gt; single_value = (1)
+&gt;&gt;&gt; type(single_value)
+&lt;type 'int'&gt;
+
+&gt;&gt;&gt; str_value = ("you")
+&gt;&gt;&gt; type(str_value)
+&lt;type 'str'&gt;
+</code></pre>
+
+<p>Empty tuple:</p>
+<pre><code>&gt;&gt;&gt; a = ()
+&gt;&gt;&gt; type(a)
+&lt;type 'tuple'&gt; 
+</code></pre>
+
+<h3>Mutable sequences:</h3>
+<p>Mutable sequences can be changed after they are created. List, Byte array are the mutable sequences available in python. Let us discuss about them in detail in the forthcoming sections</p>
+<p><strong>List:</strong></p>
+<p>It is a mutable sequence (the values in the list can be changed)</p>
+<p>List is sqeuence that contain arbitrary python objects seperated by comma and enclosed within square bracket. </p>
+<p>Lists are dynamic arrays - array in the sense they can be addressed using index and dynamic in the sense we can add element after it is created</p>
+<p>Items in  list need not be of the same type.</p>
+<p>sample_list = ["USA", "India",707,60010]</p>
+<ul>
+<li>Nested lists</li>
+</ul>
+<p>A nested list is a list that appears as an element in another list. In this list, the element with index 3 is a nested list:</p>
+<pre><code>&gt;&gt;&gt; nested = ["hello", 2.0, 5, [10, 20]]
+If we print nested[3], we get [10, 20]. To extract an element from the nested list, we can proceed in two steps:
+
+&gt;&gt;&gt; elem = nested[3]
+&gt;&gt;&gt; elem[0]
+10
+Or we can combine them:
+
+&gt;&gt;&gt; nested[3][1]    
+20
+</code></pre>
+
+<p>Bracket operators evaluate from left to right, so this expression gets the three-eth element of nested and extracts the one-eth element from it.</p>
+<p><em>Byte arrays:</em>* ????</p>
+<p>Created by build in bytearray() constructor. </p>
+<hr>
+<h3>Set types:</h3>
+<ul>
+<li>They represent finite, un-ordered list of items. They are immutable. </li>
+<li>They cannot be indexed.</li>
+<li>They can be iterated.</li>
+</ul>
+<p><strong>Sets:</strong> </p>
+<ul>
+<li>
+<p>It is a mutable data type.  
+</p>
+</li>
+<li>
+<p>A set is another data structure that serves as an unordered list with no duplicate items. Below, we show how to create a set, add things to the set, test if an item is in the set, and perform common set operations (difference, intersection, union):</p>
+</li>
+<li>
+<p>Sets can't contain mutable objects, sets are mutable</p>
+<pre><code>&gt;&gt;&gt; shapes = ['circle','square','triangle','circle']
+&gt;&gt;&gt; setOfShapes = set(shapes)
+&gt;&gt;&gt; setOfShapes 
+set(['circle','square','triangle']) 
+
+&gt;&gt;&gt; setOfShapes.add('polygon') 
+&gt;&gt;&gt; setOfShapes 
+set(['circle','square','triangle','polygon']) 
+
+&gt;&gt;&gt; 'circle' in setOfShapes 
+True 
+
+&gt;&gt;&gt; 'rhombus' in setOfShapes 
+False 
+
+&gt;&gt;&gt; favoriteShapes = ['circle','triangle','hexagon']
+&gt;&gt;&gt; setOfFavoriteShapes = set(favoriteShapes)
+&gt;&gt;&gt; setOfShapes - setOfFavoriteShapes 
+set(['square','polyon']) 
+
+&gt;&gt;&gt; setOfShapes &amp; setOfFavoriteShapes 
+set(['circle','triangle'])
+
+&gt;&gt;&gt; setOfShapes | setOfFavoriteShapes 
+set(['circle','square','triangle','polygon','hexagon'])
+</code></pre>
+
+</li>
+</ul>
+<p>Note that the objects in the set are unordered; you cannot assume that their traversal or print order will be the same across machines!</p>
+<p>nums = set([1,1,2,3,3,3,4])
+print len(nums)
+value will be 4. Set retains only unique values</p>
+<p><strong>Frozen sets:</strong> Immutable
+Frozen sets are same as sets except that they are immutable.
+We cannot perform upadate, delete operations on a frozen sets.</p>
+<hr>
+<h3>Mappings:</h3>
+<p><strong>Dictionary</strong></p>
+<p>A dictionary in python is a collection of items with key value pair. Value can be any python type. Key can be any hashable python type, but usually are integer and string.</p>
+<p>The element of a dictionary can be accessed using the key.
+Example dict_one['key']</p>
+<p>It is enclosed within {}.</p>
+<p>when to use a dictionary?
+- When you want to look-up by key
+- when you want to assign a label and use it to call an item</p>
+<p>A dictionary is a mutable python object.</p>
+<pre><code>first_dict = {"one":1, "two":2}
+&gt;&gt;&gt; first_dict["one"]
+1
+</code></pre>
+
+<p>With different key type</p>
+<pre><code>&gt;&gt;&gt; first_dict_all = {"one":1, 2:"Two"}
+&gt;&gt;&gt; first_dict_all[2]
+'Two'
+&gt;&gt;&gt; first_dict_all["one"]
+1
+</code></pre>
+
+<p>With different value type</p>
+<pre><code>&gt;&gt;&gt; first_dict_diff_value["one"]
+1
+&gt;&gt;&gt; first_dict_diff_value["Two"]
+' value Two'
+</code></pre>
+
+<h3>Operations on Data types:</h3>
+<h4>Operations on numbers:</h4>
+<pre><code> +  : addition of numbers 
+
+    a = a+b ; a+=b
+
+ -  : subtraction of mumbers  
+
+    a = a-b; a-=b
+
+ *  : multiplication of numbers
+
+    a = a* b ; a*=b
+
+ / : Division of numbers
+    a = a/b ; a/= b
+</code></pre>
+
+<h4>Operators on sequences:</h4>
+<p>All sequences has some common operators that can be applied on them like,</p>
+<ul>
+<li>
+<p>len - len(sequene) - Returns number of items in the sequence</p>
+<pre><code>&gt;&gt;&gt; len("tanigai")
+7
+&gt;&gt;&gt; len([1,2,3])
+3
+&gt;&gt;&gt; len((4,5,6))
+3
+</code></pre>
+
+</li>
+<li>
+<p>min, max operators:
+Returns the minimum value in the sequence</p>
+<pre><code>&gt;&gt;&gt; min("tanigai")
+'a'
+&gt;&gt;&gt; min([1,2,3])
+1
+&gt;&gt;&gt; min((4,5,6))
+4
+</code></pre>
+
+</li>
+</ul>
+<p>Indexing a sequence:</p>
+<p>All sequences can be accessed using index. The index starts from 0.</p>
+<pre><code>&gt;&gt;&gt; name = "tanigai"
+&gt;&gt;&gt; name[0]
+'t'
+</code></pre>
+
+<p>Using an index &gt;=L or &lt;-L raises an exception. Assigning to an item with an invalid index also raises an exception. You can add one or more elements to a list, but to do so you assign to a slice, not an item, as I’ll discuss shortly.</p>
+<p>Concatenation &amp; repetition</p>
+<ul>
+<li>
+<p>Concatenation of 2 sequences	</p>
+<pre><code>    &gt;&gt;&gt; [1,2,3]+[4,5,6]
+    [1, 2, 3, 4, 5, 6]
+
+    &gt;&gt;&gt; "tanigai"   +"arassane"
+    'tanigaiarassane'
+
+    &gt;&gt;&gt; (3,4,5)+(5,6,7)
+    (3, 4, 5, 5, 6, 7)
+</code></pre>
+
+</li>
+</ul>
+<p><strong>Try:</strong></p>
+<pre><code>&gt;&gt;&gt; [1,2,3]+(5,6,7)
+&gt;&gt;&gt; "tanigai"+[4,5,6]
+</code></pre>
+
+<ul>
+<li>
+<p>(n-1) repetion of the sequence , appended to the initial sequence</p>
+<pre><code>&gt;&gt;&gt; "Tanigai"*2
+'TanigaiTanigai'
+
+&gt;&gt;&gt; [4,5,6]*2
+[4, 5, 6, 4, 5, 6]
+
+&gt;&gt;&gt; (1,2,3)*2
+(1, 2, 3, 1, 2, 3)
+&gt;&gt;&gt; 
+</code></pre>
+
+</li>
+</ul>
+<p>Membership testing:</p>
+<p>in, not in</p>
+<pre><code>&gt;&gt;&gt; "ani" in "tanigai"
+True
+&gt;&gt;&gt; 2 in [4,5,2]
+True
+&gt;&gt;&gt; 3 not in (4,5,6)
+True
+&gt;&gt;&gt; 
+</code></pre>
+
+<p>Slicing a sequence:</p>
+<p>[i,j] - supports slicing - a[i:j] returns all elements with index K such that i&lt;= k &lt; j </p>
+<p>A slice is an empty subsequence if j is less than or equal to i, or if i is greater than or equal to L, the length of S.</p>
+<p>You can omit i if it is equal to 0, so that the slice begins from the start of S. You can omit j if it is greater than or equal to L, so that the slice extends all the way to the end of S. You can even omit both indices, to mean a copy of the entire sequence: S[:]. </p>
+<p>Slicing can also use the extended syntax S[i:j:k]. k is the stride of the slice, or the distance between successive indices. S[i:j] is equivalent to S[i:j:1], S[::2] is the subsequence of S that includes all items that have an even index in S, and S[::-1] has the same items as S, but in reverse order.</p>
+<ul>
+<li>
+<p>Mutable objects support deletion and immutable objects does not. </p>
+</li>
+<li>
+<p>In sequences, list supports del operation and  &amp; tuple does not.</p>
+</li>
+</ul>
+<p>**Specific operations: **</p>
+<p><strong>List:</strong> append, extend, insert, remove, pop, reverse, sort</p>
+<pre><code>L.count(x) - Returns the number of items of L that are equal to x. 
+L.index(x) - Returns the index of the first occurrence of an item in L that is equal to x, or raises an exception if L has no such item. 
+L.append(x) - Appends an element to the end of list 
+L.extend(s) - Appends all the items of iterable s to the end  
+L.insert(i, x) - Inserts item x in L before the item at index i, moving following items of L (if any) “rightward” 
+L.remove(x) - Removes from L the first occurrence of an item in L that is equal to x, or raises an exception if L has no such item. 
+L.pop([i]) - Returns the value of the item at index i and removes it from L; if i is omitted, removes and returns the last item; 
+L.reverse( ) -  Reverses, in place, the items of L. 
+L.sort(cmp=cmp, key=None, reverse=False) - sorts a list 
+</code></pre>
+
+<p><strong>String:</strong> 
+Following are some common operations in strings</p>
+<pre><code>s.lower() - -- returns the lowercase or lowercase version of the string
+s.upper() -- returns the lowercase or uppercase version of the string
+s.strip() -- returns a string with whitespace removed from the start and end
+s.isalpha()/s.isdigit()/s.isspace( -- tests if all the string chars are in the various character classes
+s.startswith('other'), s.endswith('other') -- tests if the string starts or ends with the given other string
+
+s.find('other') -- searches for the given other string (not a regular expression) within s, and returns the first index where it begins or -1 if not found
+
+s.replace('old', 'new') -- returns a string where all occurrences of 'old' have been replaced by 'new'
+
+s.split('delim') -- returns a list of substrings separated by the given delimiter. The delimiter is not a regular expression, it's just text. As a convenient special case s.split() (with no arguments) splits on all whitespace chars.
+
+s.join(list) -- opposite of split(), joins the elements in the given list together using the string as the delimiter. e.g. '---'.join(['aaa', 'bbb', 'ccc']) -&gt; aaa---bbb---ccc
+</code></pre>
+
+<p>** % operator
+**</p>
+<p>text = "%d little pigs come out or I'll %s and %s and %s" % (3, 'huff', 'puff', 'blow down')</p>
+<p># add parens to make the long-line work:
+  text = ("%d little pigs come out or I'll %s and %s and %s" %
+    (3, 'huff', 'puff', 'blow down'))</p>
+<p>**Dictionary:
+**</p>
+<p>Following are some common operations in Dictionary</p>
+<pre><code>cmp(dict1, dict2)  - Compares elements of both dict.
+
+str(dict) - Produces a printable string representation of a dictionary
+
+dict.clear() - Removes all elements of dictionary dict
+
+dict.copy() - Returns a shallow copy of dictionary dict
+
+dict.fromkeys() -Create a new dictionary with keys from seq and values set to value.
+
+dict.get(key, default=None) - For key key, returns value or default if key not in dictionary
+
+dict.has_key(key) - Returns true if key in dictionary dict, false otherwise
+
+dict.items() -  Returns a list of dict's (key, value) tuple pairs
+
+dict.keys() - Returns list of dictionary dict's keys
+
+dict.setdefault(key, default=None) -Similar to get(), but will set 
+
+dict[key]=default if key is not already in dict
+
+dict.update(dict2) - Adds dictionary dict2's key-values pairs to dict
+
+dict.values() - Returns list of dictionary dict's values
+</code></pre>
+
+<p>Logical operators:</p>
+<p>!= &gt; &lt; and or is 
+in, not in = these are applied on iterable objects(sequences)</p>
+<p>A style guide is about consistency. Consistency with this style guide is important. Consistency within a project is more important. Consistency within one module or function is the most important.</p>
+<p>**Short-circuit evaluation:
+**
+Boolean expressions in Python use short-circuit evaluation, which means only the first argument of an and or or expression is evaluated when its value is suffient to determine the value of the entire expression.</p>
+<p>This can be quite useful in preventing runtime errors. Imagine you want check if the fifth number in a tuple of integers named numbers is even.</p>
+<p>The following expression will work:</p>
+<pre><code>&gt;&gt;&gt; numbers = (5, 11, 13, 24)
+&gt;&gt;&gt; numbers[4] % 2 == 0
+</code></pre>
+
+<p>unless of course there are not 5 elements in numbers, in which case you will get:</p>
+<p>Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: tuple index out of range</module></stdin></p>
+<pre><code>&gt;&gt;&gt;
+</code></pre>
+
+<p>Short-circuit evaluation makes it possible to avoid this problem.</p>
+<pre><code>&gt;&gt;&gt; len(numbers) &gt;= 5 and numbers[4] % 2 == 0
+False
+</code></pre>
+
+<p>Since the left hand side of this and expression is false, Python does not need to evaluate the right hand side to determine that the whole expression is false. Since it uses short-circuit evaluation, it does not, and the runtime error is avoided.</p>
+<hr>
+<p>Boolean type:
+Boolean refers to either Ture or False. Application f relational operattors result in boolean value.</p>
+<p>a = True
+b = False</p>
+<p>type(a)
+Out[10]: bool</p>
+<h3>Interesting python capabilities</h3>
+<p>Assigning multiple names to the same value</p>
+<pre><code>&gt;&gt;&gt; a = b = c = 1   
+&gt;&gt;&gt; id(a)
+140599156074712
+&gt;&gt;&gt; id(b)
+140599156074712
+&gt;&gt;&gt; id(c)
+140599156074712
+</code></pre>
+
+<p>Assigning multiple names different values</p>
+<pre><code>&gt;&gt;&gt; a,b,c = 1,2,"Youth"
+&gt;&gt;&gt; id(a)
+140599156074712
+&gt;&gt;&gt; id(b)
+140599156074688
+&gt;&gt;&gt; id(c)
+4392967216
+</code></pre>
+
+<p>Swapping two numbers without using temp variable:</p>
+<pre><code>a=5
+
+In [5]: b =2
+
+In [6]: a,b
+Out[6]: (5, 2)
+
+In [7]: a,b=b,a
+
+In [8]: b,a
+Out[8]: (5, 2)
+</code></pre>
+
+<p>Strings and lists</p>
+<p>Python has several tools which combine lists of strings into strings and separate strings into lists of strings.</p>
+<p>The list command takes a sequence type as an argument and creates a list out of its elements. When applied to a string, you get a list of characters.</p>
+<pre><code>&gt;&gt;&gt; list("Crunchy Frog")
+['C', 'r', 'u', 'n', 'c', 'h', 'y', ' ', 'F', 'r', 'o', 'g']
+</code></pre>
+
+<p>The split method invoked on a string and separates the string into a list of strings, breaking it apart whenever a substring called the delimiter occurs. The default delimiter is whitespace, which includes spaces, tabs, and newlines.</p>
+<pre><code>&gt;&gt;&gt; "Crunchy frog covered in dark, bittersweet chocolate".split()
+['Crunchy', 'frog', 'covered', 'in', 'dark,', 'bittersweet', 'chocolate']
+</code></pre>
+
+<p>Here we have 'o' as the delimiter.</p>
+<pre><code>&gt;&gt;&gt; "Crunchy frog covered in dark, bittersweet chocolate".split('o')
+</code></pre>
+
+<p>['Crunchy fr', 'g c', 'vered in dark, bittersweet ch', 'c', 'late']
+Notice that the delimiter doesn’t appear in the list.</p>
+<p>The join method does approximately the opposite of the split method. It takes a list of strings as an argument and returns a string of all the list elements joined together.</p>
+<pre><code>&gt;&gt;&gt; ' '. join(['crunchy', 'raw', 'unboned', 'real', 'dead', 'frog'])
+'crunchy raw unboned real dead frog'
+</code></pre>
+
+<p>The string value on which the join method is invoked acts as a separator that gets placed between each element in the list in the returned string.</p>
+<pre><code>&gt;&gt;&gt; '**'.join(['crunchy', 'raw', 'unboned', 'real', 'dead', 'frog'])
+'crunchy**raw**unboned**real**dead**frog'
+The separator can also be the empty string.
+
+&gt;&gt;&gt; ''.join(['crunchy', 'raw', 'unboned', 'real', 'dead', 'frog'])
+'crunchyrawunbonedrealdeadfrog'
+</code></pre>
+
+<hr>
+<p>he language has map(), reduce() and filter() functions; list comprehensions, dictionaries, and sets; and generator expressions.[42] The standard library has two modules (itertools and functools) that implement functional tools borrowed from Haskell and Standard ML.[43]</p>
+<hr>
+<h2>Exercise:</h2>
+<ol>
+<li>
+<p>Syntax and operations
+What is the result of each of the following?</p>
+<pre><code>&gt;&gt;&gt; 'Python'[1]
+&gt;&gt;&gt; "Strings are sequences of characters."[5]
+&gt;&gt;&gt; len("wonderful")
+&gt;&gt;&gt; 'Mystery'[:4]
+&gt;&gt;&gt; 'p' in 'Pineapple'
+&gt;&gt;&gt; 'apple' in 'Pineapple'
+&gt;&gt;&gt; 'pear' not in 'Pineapple'
+&gt;&gt;&gt; (2, 4, 6, 8, 10)[1:4]
+&gt;&gt;&gt; [("cheese", "queso"), ("red", "rojo")][1][0][2]
+</code></pre>
+
+</li>
+<li>
+<p>Methods and operators</p>
+<pre><code>&gt;&gt;&gt; 'Python'.upper()
+&gt;&gt;&gt; 'Mississippi'.count('s')
+&gt;&gt;&gt; letters = ['c', 'z', 'b', 's']
+&gt;&gt;&gt; letters.sort()
+&gt;&gt;&gt; letters
+&gt;&gt;&gt; (3, 9, 8, 42, 17).index(42)
+&gt;&gt;&gt; "\t   \n     Don't pad me!   \n   \n".strip()
+&gt;&gt;&gt; mystery = 'apples pears bananas cheesedoodles'.split()
+&gt;&gt;&gt; mystery
+&gt;&gt;&gt; mystery.sort()
+&gt;&gt;&gt; mystery
+&gt;&gt;&gt; mystery.reverse()   
+&gt;&gt;&gt; mystery
+</code></pre>
+
+</li>
+<li>
+<p>What value will appear after these two lines are entered at the prompt?</p>
+<pre><code>&gt;&gt;&gt; word = "Pneumonoultramicroscopicsilicovolcanoconiosis"
+&gt;&gt;&gt; (word[6] + word[30] + word[33] + word[15]).upper()
+</code></pre>
+
+</li>
+<li>
+<p>Logical opposites
+Give the logical opposites of these conditions</p>
+<pre><code>a &gt; b
+a &gt;= b
+a &gt;= 18  and  day == 3
+a &gt;= 18  and  day != 3
+3 == 3
+3 != 3
+3 &gt;= 4
+not (3 &lt; 4)
+</code></pre>
+
+<p>Strings, lists, and tuples doctest exercises</p>
+</li>
+<li>
+<p>Four friends and a movie
+Write a program in a file named movie_friends.py that will produce a session something like this:</p>
+<p>$ python movie_friends.py</p>
+<p>Hmmm... You have 5 tickets to that new movie everyone wants to see.
+Whom should you invite to go with you?</p>
+<p>Enter the name of friend one: Sean
+Your invite list now contains: ['Sean']</p>
+<p>Enter the name of friend two: Jonathan
+Your invite list now contains: ['Sean', 'Jonathan']</p>
+<p>Enter the name of friend three: Margot
+Your invite list now contains: ['Sean', 'Jonathan', 'Margot']</p>
+<p>Enter the name friend four: Justin
+Your invite list now contains: ['Sean', 'Jonathan', 'Margot', 'Justin']</p>
+<p>Great!  You are ready to go to the movie...</p>
+</li>
+<li>
+<p>What will be the output of the following program?</p>
+<pre><code>this = ['I', 'am', 'not', 'a', 'crook']
+that = ['I', 'am', 'not', 'a', 'crook']
+print("Test 1:", this is that)
+that = this
+print("Test 2:", this is that)
+</code></pre>
+
+</li>
+</ol>
+<hr>
+<h4></h4>
+<p>References:</p>
+<p>http://www.python-course.eu/variables.php
+https://developers.google.com/edu/python/introduction#indentation
+https://www.python.org/dev/peps/pep-0008/#introduction
+https://www.python.org/dev/peps/pep-0257/</p>
+<p>https://www.safaribooksonline.com/library/view/python-in-a/0596100469/ch04s06.html
+http://www.diveintopython.net/native<em>data</em>types/mapping_lists.html</p>
+<p>http://www.w3resource.com/python/python-data-type.php</p>
+<p>Python quiz: http://www.mypythonquiz.com/question.php?qid=180</p>
+<p>Python basics:
+http://ai.berkeley.edu/tutorial.html#PythonBasics</p>
+<p>http://www.openbookproject.net/books/bpp4awd/ch03.html</p>
+
+
+
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+</body></html>
