@@ -14,79 +14,85 @@
 
 
 <div class="container">
-        <div class="row">
 
-            <div class="col-12">
+    <div class="row">
+        <div class="col-12">
                 {% block top %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-
-  <a class="navbar-brand text-warning" href="#"> Activity Tracker </a>
-
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link text-white" href="{{url_for('create')}}">New </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="{{url_for('listing')}}">List</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="#">Query</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success text-warning my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+                    <a class="navbar-brand text-warning" href="#"> Activity Tracker </a>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item"><a class="nav-link text-white" href="{{url_for('create')}}">New </a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="{{url_for('listing')}}">List</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="#">Query</a></li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success text-warning my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                    <div class="navbar-nav">
+                        {% if current_user.is_authenticated %}
+                            <a class="nav-item nav-link" href="{{ url_for('curruser_list') }}">My List</a>
+                            <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                        {% else %}
+                            <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                            <a class="nav-item nav-link" href="{{ url_for('signin') }}">Register</a>
+                        {% endif %}
+                    </div>
+                </nav>
+                {% endblock top %}
             </div>
-
-{% endblock top %}
-
-        </div>
-
+    </div>
 
     <div class="row">
 
+
         <div class="col-3">
-   <br><div class="card">
-  <div class="card-body"><ul class="list-group">
-    <li class="list-group-item">Boot strap</li>
-    <li class="list-group-item">SQL Alchemy</li>
-    <li class="list-group-item">Python</li>
-  </ul></div>
-</div>
+            <!-- Card -->
+<div class="card">
 
+  <!-- Card image -->
+  <div class="view overlay">
+    <img class="card-img-top" src="{{url_for('static',filename='srinivasa-ramanujan.jpg')}}" alt="Card image cap">
+    <a href="#!">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
 
-          <div class="card">
-              <div class="card-header bg-dark text-warning">Jeep Compass</div>
-  <div class="card-body">  <img src="{{ url_for('static', filename='jeep1.jpg') }}" class="img-fluid img-thumbnail" ></div>
+  <!-- Card content -->
+  <div class="card-body">
 
+    <!-- Title -->
+    <h4 class="card-title">Mathematicians</h4>
+    <!-- Text -->
+    <p class="card-text">Renowned scholars in the world who shaped the way the generations think and act.. Based on page visits</p>
+    <!-- Button -->
+    <a href="{{ url_for('topNmaths') }}" class="btn btn-primary">Button</a>
+
+  </div>
 
 </div>
         </div>
-        <div class="col-7">
+
+        <div class="col-6">
             <br>
              {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-              {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">
-                  {{ message }}
-                </div>
-              {% endfor %}
-            {% endif %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                      <div class="alert alert-{{ category }}">
+                       {{ message }}
+                      </div>
+                    {% endfor %}
+                 {% endif %}
           {% endwith %}
-        {% block content %}{% endblock %}
+          {% block content %}{% endblock %}
 
         </div>
-      <div class="col-2"></div>
+        <div class="col-3">
+         </div>
     </div>
-
-
 </div>
-
 <!--Main Navigation-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
