@@ -1,0 +1,28 @@
+\d - digits
+\D - not a digit
+\w - word character - A to Z, a to z, 0 to 9, _
+\W - non word
+\s - white space (space, tab, new line)
+\S - not white space
+. - any character except new
+
+
+\b - word boundary
+\B - not a word boundary
+\ - not a space
+^ - Beginning of a string
+$ - End of a string
+
+
+Meta character
+[] - Matches characters in []
+[^] - Matches characters not in the bracket
+| - either or
+() group
+
+Quantifiers
+* - 0 or more
++ - 1 0r more
+? - 0 or 1
+{} - number
+{n,m}  - range of numbers

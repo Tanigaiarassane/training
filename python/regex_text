@@ -1,0 +1,29 @@
+Tanigai
++918056522662
++1404-345-2890
+hello world
+tanigai.dj@gmail.com  he
+tan@gmail.com
+tanigai_arassanet
+
+rat
+cat
+bat
+_
+
+
+1. select a word with 5 characters
+2. select rat, cat , bat
+3. select all email ids
+4.select India mobile number
+5. select US phone number
+6. select white spaces alone
+7. select cat and bat
+
+\s\w{5}\s
+[r|c|b]at
+\w+.?\w*\@\w+\.\w+
+\+\91\d{10}
+\+1\d{3}-\d{3}-\d{4}
+\s
+[^r]at
