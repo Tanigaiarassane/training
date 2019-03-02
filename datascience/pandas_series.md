@@ -1,4 +1,4 @@
-#Pandas - series
+# Pandas - series
 
 pandas.Series( data, index, dtype, copy)
 
@@ -9,7 +9,7 @@ Empty Series:
 >> Series([], dtype: float64)
 
 
-## From Dictonary:
+## From Dictionary:
 
 import pandas as pd
 data = {'India' : 130, 'China' : 134, 'US' : 32}
@@ -26,18 +26,18 @@ print s
 ==> Index order is persisted and the missing element is filled with NaN (Not a Number).
 
 
-##From scalar
+## From scalar
 import pandas as pd
 s = pd.Series(130, index=[0, 1, 2, 3])
 print s
 
 
-Retrieval by location:
+## Retrieval by location:
 print s[1]
 print s[:3]
 print s[:-3]
 print s[14]
 
-Retrieval by label:
+## Retrieval by label:
 print s['India']
 print s['UK']
