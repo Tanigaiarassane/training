@@ -169,3 +169,71 @@ Deletion of rows
     df = df.drop(0)
 
     print df
+
+## Basic functionalities
+
+
+    import pandas as pd
+    df = pd.DataFramerame([[1, 2], [3, 4]], columns = ['a','b'])
+    print df
+
+    >>> print df
+         a  b
+      0  1  2
+      1  3  4
+
+- Transpose : Returns the transpose of the data frame.
+
+
+    >>> df.T
+      0  1
+    a  1  3
+    b  2  4
+
+- Axes -  Returns a list of row axis labels and column axis labels
+
+
+    >>> df.axes
+    [RangeIndex(start=0, stop=2, step=1), Index([u'a', u'b'], dtype='object')]
+
+- dtypes - returns the data types of each columns
+-empty - returns False if the DF is Empty
+
+
+    >>> df.dtypes
+    a    int64
+    b    int64
+    dtype: object
+
+- ndim - returns the dimensions of the object
+shape - returns the tuple representing the dimensionality of the DataFrame
+
+
+    >>> df.ndim
+    2
+
+- Size - returns the number of elements in the dataframe.
+
+
+    >>> df.size
+    4
+
+
+- Values - returns the actual data in DataFrame
+
+
+    >>> df.values
+    array([[1, 2],
+     [3, 4]])
+
+- Head & tail -  Returns the first n rows or last n rows of the data frame.
+
+
+
+    >>> df.head(1)
+         a  b
+      0  1  2
+
+      >>> df.tail(1)
+         a  b
+      1  3  4
