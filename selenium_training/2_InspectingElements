@@ -1,0 +1,52 @@
+Selenium WebDriver With Python 3.x - Novice To Ninja
+
+
+Inspecting elements:
+letskodeit
+
+https://learn.letskodeit.com/p/practice
+
+
+## Firefox:
+
+Firefox - > developer tools
+
+Right click an element
+Click Inspect
+
+
+Identifying iframe - Selenium Web driver cannot inspect iframe.
+
+How to identify iframe?
+Scroll up and find the parent and check if its within the iframe
+v
+
+
+How do you find xpath?
+Firefox -> developer tool -> console
+
+$x("//input[@type='radio']")
+
+$x("//input[@id='bmwradio']")[0]
+
+Add-ons:
+Up-to versions 56 and 57 there were lots of adons. But after it there is not much of add-ons.
+one of them is firebug. The reason is that firefox was completely re-written and the add-ons have to be redone.
+ - tryxpath
+
+## Chrome
+--More tools - developer tools
+  --> Talk about docking
+  --> goto elements
+    --> select an element (inspector)
+-> right click any element and inspect
+-> In the elements tab -> ctrl F
+    //input[@type='radio']
+
+Chrome extension:
+
+more tools -> extension -> open chrome webstore
+ranorex selocity
+chropath
+
+How to find its in iframe?

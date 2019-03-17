@@ -1,0 +1,19 @@
+Inspective elements:
+
+Firefox - > developer tools
+
+Right click an element
+Click Inspect
+
+
+Identifying iframe - Selenium webdriver cannot inspect iframe.
+
+How to identify iframe?
+Scroll up and find the parent and check if its within the iframe
+v
+
+
+How do you find xpath?
+Firefox -> developer tool -> console
+
+$x("//input[@type='radio']")
