@@ -25,7 +25,7 @@ class Browser():
         #Geckodriver location for firefox driver
         self.firefox_driver_location = "/usr/local/bin/geckodriver"
         # Chrome driver location
-        self.chrome_driver_location = "/Users/tanigai/training/selenium/drivers/chromedriver"
+        self.chrome_driver_location = "/usr/bin/chromedriver"
         #IE Driver location
         self.ie_driver_location = "C:\\Users\\selvi\\drivers\\IEDriverServer.exe"
         #Server driver location for safari

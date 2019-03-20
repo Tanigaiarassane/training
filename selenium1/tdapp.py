@@ -7,7 +7,7 @@ time.sleep(2)
 driver.get("https://td3-activity.herokuapp.com/login")
 time.sleep(2)
 driver.find_element_by_id("email").send_keys("tanigai.dj@gmail.com")
-driver.find_element_by_id("password").send_keys("******")
+driver.find_element_by_id("password").send_keys("tanigai@123")
 
 driver.find_element_by_id("submit").send_keys(Keys.RETURN)
 
