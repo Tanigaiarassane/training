@@ -48,6 +48,7 @@ class Browser():
         return self.driver.get(url)
 
     def get_element(self, type, value):
+        element = ""
         if type == "id":
             element = self.driver.find_element(By.ID, value)
         elif type == "name":
@@ -64,6 +65,7 @@ class Browser():
             element = self.driver.find_element(By.CLASS_NAME, value)
         elif type == "tag":
             element = self.driver.find_element(By.TAG_NAME, value)
+        return element
 
     def diconnect(self):
         return self.driver.close()
