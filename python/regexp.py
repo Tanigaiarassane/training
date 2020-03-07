@@ -1,5 +1,10 @@
 #Reg exp or regular expression is a sequence of characters that forms a search pattern
-
+'''
+findall 	Returns a list containing all matches
+search 	Returns a Match object if there is a match anywhere in the string
+split 	Returns a list where the string has been split at each match
+sub 	Replaces one or many matches with a string
+'''
 import re
 
 text = "I am a trainer in  Python studios"
