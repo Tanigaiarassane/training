@@ -1,0 +1,149 @@
+#Pytest
+Pytest is a python based test execution framework. It is used to write and execute tests with ease.It is largely used in UI, rest and network automation area. This can seamlessly integrate with C
+
+Pytest supports the following features 
+1. Run all tests in sequence, parallel.
+2. Run a selected set of test base on a string or mark.
+3. We can skip certain tests
+4. Can execute a test with different set of inputs without additional code.
+5. It supports plug-ins for easy reporting of the test.
+
+##Installation:
+Pytest can be installed  using the pip install command. You have to choose a version, else the latest will be installed
+
+    pip install pytest
+    pip install pytest=2.8.9
+    
+    
+##Setup and run your first pytest
+    def test_pass():
+    assert 1
+ 
+    $pytest
+
+### How does pytest work:
+You can execute pytest with or without a filename.
+Pytest works on the philosphy of discover and excute.
+
+####Discover phase:
+1. It looks for files with test_*.py or *_test.py
+2. Within each of the files identified in step 1, it looks for function starting with test* and identifies those funcations as target for execution.
+
+### Execute phase
+3. At the end of step 2, pytest would have identified all the test to be executed. Once the discovery of test is complete, it executes all the test.
+
+test_sample.py
+
+    def test_sum():
+       a = 10
+       b = 5
+       assert a+b == 15
+    
+    def testproduct():
+       a = 10
+       b = 5
+       assert a*b == 50
+       
+        $/home/tanigai/pytest test_sample.py        
+        collecting ... collected 2 items
+
+        test_sample.py::test_sum PASSED                                          [ 50%]
+        test_sample.py::testproduct PASSED                                       [100%]
+    
+        =========================== 2 passed in 0.01 seconds ===========================
+           
+### Commonly used options
+* pytest - v => Provides detailed informatoin on the tests being executed.
+* pytest -s  => By default, pytest test does not display the output of print statements on console. -s option will display it on console.
+
+##Running selected test.
+Pytest provides options to run a set of test based on
+1. search string
+    python -k product test_sample.py will execute all the test with 'product' as substring.
+      
+        $/home/tanigai/python -k product test_sample.py
+        **collecting ... collected 2 items / 1 deselected / 1 selected**
+
+        test_sample.py::testproduct PASSED                                       [100%]
+        
+        ==================== 1 passed, 1 deselected in 0.01 seconds ====================
+        Process finished with exit code 0
+
+2. Grouping the test
+
+Pytest has an option to set markers on test functions. This is used to group tests. All test of a particular feature/criteria can be marked under a single marker.
+
+    @pytest.mark.<marker>
+
+test_sample.py
+
+    @pytest.mark.addition
+    def test_sum():
+       a = 10
+       b = 5
+       assert a+b == 15
+       
+    @pytest.mark.product    
+    def testproduct():
+       a = 10
+       b = 5
+       assert a*b == 50
+       
+    $/home/tanigai/pytest -m addition test_sample.py        
+    collecting ... collected 2 items / 1 deselected / 1 selected
+
+    test_sample.py::test_sum PASSED                                          [100%]
+
+### Special markers
+
+##fixtures:
+
+Reference: https://www.youtube.com/watch?v=IBC_dxr-4ps
+
+### skip test on fixture fail
+Use the skip mark inside a fixture, if you want to skip the tests if the fixture value is not as expected.
+For example: if the connection to a db failed, then skip all tests related to that db connection. To do this, use @pytest.skip option inside the fixture
+
+    @pytest.fixture(scope='session')
+    def input_check():
+        if b >= 5:
+            return b
+        else:
+            pytest.skip("The input parameter is not matching")
+    
+    def test_one(input_check):
+        assert input_check == 6
+
+    def test_two(input_check):
+        assert input_check == 3
+    
+### Autouse
+
+
+###Parameterize fixtures
+This feature is used to pass (iterate) though different values in the fixture.
+For example, if you want to run the same test on Chome, firefox ad IE, you the params option in fixture
+    
+    @pytest.fixture(params=["chrome","IE","firefox"])
+    def input_values(request):
+        print ("param value is {} ".format(request.param))
+
+        return request.param
+
+    def test_three(input_values):
+        assert 1
+    
+    Result:
+    
+    test_skip_on_fail.py::test_three[2] param value is 2 
+    PASSED
+    test_skip_on_fail.py::test_three[3] param value is 3 
+    PASSED
+    test_skip_on_fail.py::test_three[4] param value is 4 
+    PASSED
+    
+### Accessing fixture info
+    @pytest.fixture(request):
+        print (request.fixturenames)
+
+### Using command line options
