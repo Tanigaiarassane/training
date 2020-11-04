@@ -1,0 +1,16 @@
+https://github.com/kodekloudhub/certified-kubernetes-administrator-course
+
+Node: Kode cloud
+Coupon: UDEMYSTUDENT210612
+https://kodekloud.com/purchase?product_id=2021256&coupon_code=UDEMYSTUDENT210612&src=ud_cka
+
+
+
+pods:
+kubectl get pods
+kubectl describe pods
+kubectl create -f x.ymp
+kubectl delete pod x
+kubectl edit pod redis
+kubectl apply 
+
