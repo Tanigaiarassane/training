@@ -9,3 +9,6 @@
      - set of test cases (@pytest.mark)
      - Set of test cases except a mark
 # Fixture
+# printing output on console
+    pytest -v -s
+    

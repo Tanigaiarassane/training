@@ -57,4 +57,5 @@
   
   def test_two(setup):
   
-  
+  # printing output on console
+      pytest testcases -v -s
